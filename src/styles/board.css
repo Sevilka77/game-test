@@ -1,0 +1,13 @@
+.board {
+  display: inline-grid;
+  grid-template-columns: [left-edge] 1fr [line2] 1fr [line3] 1fr [right-edge];
+  grid-template-rows: [top-edge] 1fr [line2] 1fr [line3] 1fr [bottom-edge];
+  grid-template-areas:
+    "suspect-hand suspect-hand suspect-hand"
+    "battleground battleground community-cards"
+    "player-hand player-hand player-hand";
+  justify-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
