@@ -4,7 +4,7 @@ export default function Player({ gameData, handID }) {
   const hero = handID
   const { currentPlayer } = gameData.ctx
 
-  const cardsToRender = gameData.G['player_' + (handID || '0')].cards
+  const cardsToRender = gameData.G.players[handID].hand
 
   return (
     <div

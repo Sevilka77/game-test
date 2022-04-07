@@ -6,7 +6,7 @@ import Suspect from './Suspect'
 function Board({ playerID, ...props }) {
   return (
     <div className="board">
-      <Suspect handID={playerID} gameData={props} />
+      {/* <Suspect handID={playerID} gameData={props} /> */}
       <Player handID={playerID} gameData={props} />
     </div>
   )

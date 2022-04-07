@@ -1,21 +1,32 @@
-import { initializeDeck, shuffleDeck } from './cards'
+import { shuffleDeck } from './cards'
+import { initializeGame } from './initializer'
 
+const setup = ({ numPlayers }) => {
+  const { deck, players } = initializeGame(numPlayers)
+  return {
+    players: players,
+    briscola: null,
+    deckOnBoard: shuffleDeck(deck),
+    evaluated: false,
+    winner: 0,
+    loser: 1,
+    middle: [],
+    previousRound: [],
+  }
+}
 export const Neto = {
   name: 'neto',
-  setup: (ctx) => prepareGame(ctx),
+  setup: setup,
   phases: {
     draw: {
       moves: {},
-      onBegin: (G) => {
-        G.player_0.cards = G.deckOnBoard.splice(G.deckOnBoard.length - 4, 4)
-        G.player_1.cards = G.deckOnBoard.splice(G.deckOnBoard.length - 4, 4)
-      },
+      onBegin: () => {},
       start: true,
     },
   },
 }
 
-function prepareGame(ctx) {
+/* function prepareGame(ctx) {
   const deck = initializeDeck(ctx.numPlayers)
   return {
     player_0: {
@@ -40,6 +51,7 @@ function prepareGame(ctx) {
       played: null,
     },
     briscola: null,
+    deck: deck,
     deckOnBoard: shuffleDeck(deck),
     evaluated: false,
     winner: 0,
@@ -47,4 +59,4 @@ function prepareGame(ctx) {
     middle: [],
     previousRound: [],
   }
-}
+} */

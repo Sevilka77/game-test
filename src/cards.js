@@ -621,7 +621,7 @@ const cards = [
   },
 ]
 
-function initializeDeck(num) {
+/* function initializeDeck(num) {
   const deck = []
   cards.forEach((c) => {
     for (let i = 0; i < c.count[num]; i++) {
@@ -639,7 +639,7 @@ function initializeDeck(num) {
     }
   })
   return deck.map((c, idx) => ({ ...c, id: idx }))
-}
+} */
 function shuffleDeck(deck) {
   for (var i = deck.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1))
@@ -649,4 +649,4 @@ function shuffleDeck(deck) {
   }
   return deck
 }
-export { cards, shuffleDeck, initializeDeck }
+export { cards, shuffleDeck }
