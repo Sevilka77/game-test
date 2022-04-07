@@ -3,6 +3,15 @@ import { deck, shuffleDeck } from './cards'
 export const Neto = {
   name: 'neto',
   setup: prepareGame,
+  phases: {
+    draw: {
+      moves: {},
+      onBegin: (G) => {
+        G.player_0.cards = G.deckOnBoard.splice(G.deckOnBoard.length - 4, 4)
+      },
+      start: true,
+    },
+  },
 }
 
 function prepareGame() {

@@ -19,7 +19,22 @@ const card4 = {
   alt: 4,
 }
 
-const deck = [card1, card2, card3, card4]
+const card5 = {
+  cardId: 5,
+  imagePath: '/images/5.png',
+  alt: 5,
+}
+const card6 = {
+  cardId: 6,
+  imagePath: '/images/6.png',
+  alt: 6,
+}
+const card7 = {
+  cardId: 7,
+  imagePath: '/images/7.png',
+  alt: 7,
+}
+const deck = [card1, card2, card3, card4, card5, card6, card7]
 
 function shuffleDeck(deck) {
   for (var i = deck.length - 1; i > 0; i--) {

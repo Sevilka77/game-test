@@ -5,9 +5,36 @@
   grid-template-areas:
     "suspect-hand suspect-hand suspect-hand"
     "battleground battleground community-cards"
-    "player-hand player-hand player-hand";
+    "hero-hand hero-hand hero-hand";
   justify-items: center;
   height: 100%;
   width: 100%;
   overflow: hidden;
+}
+
+.hero-hand {
+  grid-area: hero-hand;
+  display: flex;
+  font-size: 40px;
+  filter: grayscale(1);
+  animation-name: indicator-villain-turn;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+.hero-hand-green {
+  grid-area: hero-hand;
+  display: flex;
+  font-size: 40px;
+  animation-name: indicator-hero-turn;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+
+.card-wrapper {
+  filter: drop-shadow(40px -30px 4px rgb(0, 0, 0, 0.4));
+}
+.hero-playing-card {
+  max-height: 38vh;
+  border-radius: 30px;
+  padding: 10px;
 }
