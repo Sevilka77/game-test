@@ -1,4 +1,4 @@
-const Cards = [
+const cards = [
   {
     title: 'TheThing',
     imagePath: '/images/TheThing.png',
@@ -623,7 +623,7 @@ const Cards = [
 
 function initializeDeck(num) {
   const deck = []
-  Cards.forEach((c) => {
+  cards.forEach((c) => {
     for (let i = 0; i < c.count[num]; i++) {
       deck.push({
         id: 0,
@@ -649,4 +649,4 @@ function shuffleDeck(deck) {
   }
   return deck
 }
-export { initializeDeck, shuffleDeck }
+export { cards, shuffleDeck, initializeDeck }
