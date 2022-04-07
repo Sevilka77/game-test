@@ -12,7 +12,7 @@ export default function Player({ gameData, handID }) {
       id={cardsToRender.length === 2 ? 'hero-two-cards' : 'hero-other-cards'}
     >
       {cardsToRender.map((x, index) => (
-        <div className="card-wrapper" id={'wrapped-card-' + index} key={x.alt}>
+        <div className="card-wrapper" id={'wrapped-card-' + index} key={x.id}>
           <div className="transform-wrapper">
             <img
               className="hero-playing-card"

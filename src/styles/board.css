@@ -3,7 +3,7 @@
   grid-template-columns: [left-edge] 1fr [line2] 1fr [line3] 1fr [right-edge];
   grid-template-rows: [top-edge] 1fr [line2] 1fr [line3] 1fr [bottom-edge];
   grid-template-areas:
-    "suspect-hand suspect-hand suspect-hand"
+    "villain-hand villain-hand villain-hand"
     "battleground battleground community-cards"
     "hero-hand hero-hand hero-hand";
   justify-items: center;
@@ -31,10 +31,21 @@
 }
 
 .card-wrapper {
-  filter: drop-shadow(40px -30px 4px rgb(0, 0, 0, 0.4));
+  filter: drop-shadow(1vh -1vh 4px rgb(0, 0, 0, 0.4));
 }
 .hero-playing-card {
-  max-height: 38vh;
+  max-height: 30vh;
   border-radius: 30px;
   padding: 10px;
+}
+.villain-hand {
+  grid-area: villain-hand;
+  display: flex;
+  
+}
+.villain-playing-card {
+  max-height: 30vh;
+  border-radius: 30px;
+  padding: 10px;
+  filter: drop-shadow(40px -30px 4px rgb(0, 0, 0, 0.4));
 }

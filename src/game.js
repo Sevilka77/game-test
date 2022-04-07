@@ -2,21 +2,21 @@ import { initializeDeck, shuffleDeck } from './cards'
 
 export const Neto = {
   name: 'neto',
-  setup: prepareGame,
-
+  setup: (ctx) => prepareGame(ctx),
   phases: {
     draw: {
       moves: {},
       onBegin: (G) => {
         G.player_0.cards = G.deckOnBoard.splice(G.deckOnBoard.length - 4, 4)
+        G.player_1.cards = G.deckOnBoard.splice(G.deckOnBoard.length - 4, 4)
       },
       start: true,
     },
   },
 }
 
-function prepareGame() {
-  const deck = initializeDeck()
+function prepareGame(ctx) {
+  const deck = initializeDeck(ctx.numPlayers)
   return {
     player_0: {
       cards: [],
@@ -29,9 +29,17 @@ function prepareGame() {
       picked: [],
       played: null,
     },
-
+    player_2: {
+      cards: [],
+      picked: [],
+      played: null,
+    },
+    player_3: {
+      cards: [],
+      picked: [],
+      played: null,
+    },
     briscola: null,
-    deck: initializeDeck(),
     deckOnBoard: shuffleDeck(deck),
     evaluated: false,
     winner: 0,

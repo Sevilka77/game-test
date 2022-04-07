@@ -5,7 +5,12 @@ import Board from './Board'
 import { Local } from 'boardgame.io/multiplayer'
 
 function App() {
-  const NetoClient = Client({ game: Neto, board: Board, multiplayer: Local() })
+  const NetoClient = Client({
+    game: Neto,
+    board: Board,
+    numPlayers: 4,
+    multiplayer: Local(),
+  })
 
   return <NetoClient playerID="0" />
 }
