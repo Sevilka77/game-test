@@ -1,8 +1,9 @@
-import { deck, shuffleDeck } from './cards'
+import { initializeDeck, shuffleDeck } from './cards'
 
 export const Neto = {
   name: 'neto',
   setup: prepareGame,
+
   phases: {
     draw: {
       moves: {},
@@ -15,6 +16,7 @@ export const Neto = {
 }
 
 function prepareGame() {
+  const deck = initializeDeck()
   return {
     player_0: {
       cards: [],
@@ -29,6 +31,7 @@ function prepareGame() {
     },
 
     briscola: null,
+    deck: initializeDeck(),
     deckOnBoard: shuffleDeck(deck),
     evaluated: false,
     winner: 0,
