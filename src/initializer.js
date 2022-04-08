@@ -27,7 +27,9 @@ export const initializeGame = (numPlayers) => {
   const deckPanic = []
   const deck = []
   tempDeck.forEach((c) => {
-    c.type === 'notpanic' ? deckEvent.push(c) : deckPanic.push(c)
+    ;(c.type === 'notpanic') & (c.title !== 'Infected')
+      ? deckEvent.push(c)
+      : deckPanic.push(c)
   })
   shuffleDeck(deckEvent)
   //give each player cards
