@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/radial.css'
+import CardsOnBoard from './CardsOnBoard'
 
 // row of players
 const Players = (props) => {
@@ -25,7 +26,7 @@ const Players = (props) => {
 
   return (
     <div className="battleground players radial list radius10">
-      <div className="radialPivot">...</div>
+      <CardsOnBoard {...props} />
       <ul
         className="radialList clock  f2 "
         role="navigation"

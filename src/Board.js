@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './styles/board.css'
 import Hero from './Hero'
 import Players from './Players'
 import Suspect from './Suspect'
 
-function Board({ playerID, ...props }) {
+const Board = (props) => {
   return (
     <div className="board">
       <Players {...props} />
-      <Hero handID={playerID} gameData={props} />
+      <Hero {...props} />
     </div>
   )
 }

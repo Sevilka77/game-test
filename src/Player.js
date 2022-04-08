@@ -1,8 +1,16 @@
 import React, { useState } from 'react'
-const Player = ({ G, ctx, playerID, moves, i }) => {
-  const yourPlayer = G.players[playerID]
-  const player = G.players[i]
-  const hand = []
-  player.hand.array.forEach((card, cardIndex) => {})
+import { scryRenderedDOMComponentsWithClass } from 'react-dom/test-utils'
+import Modal from './Modal/Modal'
+
+const player = () => {
+  const [modalActive, setModalActive] = useState(true)
+  return (
+    <div>
+      <Modal active={modalActive} setActive={setModalActive}>
+        player
+      </Modal>
+    </div>
+  )
 }
-export default Player
+
+export default player

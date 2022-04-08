@@ -1,14 +1,15 @@
 import React from 'react'
 
-export default function Hero({ gameData, handID }) {
-  const hero = handID
-  const { currentPlayer } = gameData.ctx
+const Hero = (props) => {
+  const { G, ctx, playerID } = props
 
-  const cardsToRender = gameData.G.players[handID].hand
+  const cardsToRender = G.players[playerID].hand
 
   return (
     <div
-      className={currentPlayer === hero ? 'hero-hand-green' : 'hero-hand'}
+      className={
+        ctx.currentPlayer === playerID ? 'hero-hand-green' : 'hero-hand'
+      }
       id={cardsToRender.length === 2 ? 'hero-two-cards' : 'hero-other-cards'}
     >
       {cardsToRender.map((x, index) => (
@@ -27,3 +28,4 @@ export default function Hero({ gameData, handID }) {
     </div>
   )
 }
+export default Hero
