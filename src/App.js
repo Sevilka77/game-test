@@ -8,7 +8,7 @@ function App() {
   const NetoClient = Client({
     game: Neto,
     board: Board,
-    numPlayers: 4,
+    numPlayers: 10,
     multiplayer: Local(),
   })
 

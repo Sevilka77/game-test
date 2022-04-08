@@ -3,8 +3,8 @@ import React from 'react'
 export default function Suspect({ gameData, handID }) {
   const hero = handID
   // const { currentPlayer } = gameData.ctx
-  const p0cards = gameData.G.player_0.cards
-  const p1cards = gameData.G.player_1.cards
+  const p0cards = gameData.G.players[0].hand
+  const p1cards = gameData.G.players[0].hand
   //const p2cards = gameData.G.player_3.cards
   //const p3cards = gameData.G.player_4.cards
 
