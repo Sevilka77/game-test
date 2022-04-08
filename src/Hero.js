@@ -1,4 +1,27 @@
 import React from 'react'
+import styled, { css } from 'styled-components'
+
+const StyledHero = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-height: 30px;
+  animation-name: indicator-villain-turn;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  filter: grayscale(1);
+  ${(props) =>
+    props.type &&
+    css`
+      filter: grayscale(0);
+    `};
+`
+const StyledCardWrapper = styled.img`
+  max-height: 30vh;
+  border-radius: 30px;
+  padding: 10px;
+`
 
 const Hero = (props) => {
   const { G, ctx, playerID } = props
@@ -6,26 +29,18 @@ const Hero = (props) => {
   const cardsToRender = G.players[playerID].hand
 
   return (
-    <div
-      className={
-        ctx.currentPlayer === playerID ? 'hero-hand-green' : 'hero-hand'
-      }
-      id={cardsToRender.length === 2 ? 'hero-two-cards' : 'hero-other-cards'}
-    >
+    <StyledHero type={ctx.currentPlayer === playerID}>
       {cardsToRender.map((x, index) => (
         <div className="card-wrapper" id={'wrapped-card-' + index} key={x.id}>
-          <div className="transform-wrapper">
-            <img
-              className="hero-playing-card"
-              src={x.imagePath}
-              alt={x.alt}
-              key={x.alt}
-              style={x.props}
-            />
-          </div>
+          <StyledCardWrapper
+            src={x.imagePath}
+            alt={x.alt}
+            key={x.alt}
+            style={x.props}
+          ></StyledCardWrapper>
         </div>
       ))}
-    </div>
+    </StyledHero>
   )
 }
 export default Hero
