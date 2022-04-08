@@ -3,10 +3,11 @@
   grid-template-columns: [left-edge] 1fr [line2] 1fr [line3] 1fr [right-edge];
   grid-template-rows: [top-edge] 1fr [line2] 1fr [line3] 1fr [bottom-edge];
   grid-template-areas:
-    "villain-hand villain-hand villain-hand"
-    "battleground center community-cards"
+    "center center center"
+    "center center center"
     "hero-hand hero-hand hero-hand";
   justify-items: center;
+  align-items: center;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -53,5 +54,4 @@
 .battleground {
   grid-area: center;
   display: flex;
-  
 }
