@@ -1,13 +1,14 @@
 import React from 'react'
 import './styles/board.css'
-import Player from './Player'
+import Hero from './Hero'
+import Players from './Players'
 import Suspect from './Suspect'
 
 function Board({ playerID, ...props }) {
   return (
     <div className="board">
-      <Suspect handID={playerID} gameData={props} />
-      <Player handID={playerID} gameData={props} />
+      <Players {...props} />
+      <Hero handID={playerID} gameData={props} />
     </div>
   )
 }

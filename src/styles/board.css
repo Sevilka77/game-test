@@ -4,7 +4,7 @@
   grid-template-rows: [top-edge] 1fr [line2] 1fr [line3] 1fr [bottom-edge];
   grid-template-areas:
     "villain-hand villain-hand villain-hand"
-    "battleground battleground community-cards"
+    "battleground center community-cards"
     "hero-hand hero-hand hero-hand";
   justify-items: center;
   height: 100%;
@@ -48,4 +48,10 @@
   border-radius: 30px;
   padding: 10px;
   filter: drop-shadow(40px -30px 4px rgb(0, 0, 0, 0.4));
+}
+
+.battleground {
+  grid-area: center;
+  display: flex;
+  
 }
