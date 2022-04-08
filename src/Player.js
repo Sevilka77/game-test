@@ -1,16 +1,39 @@
 import React, { useState } from 'react'
-import { scryRenderedDOMComponentsWithClass } from 'react-dom/test-utils'
 import Modal from './Modal/Modal'
 
-const player = () => {
-  const [modalActive, setModalActive] = useState(true)
+const Player = ({ G, ctx, playerID, moves, i }) => {
+  const player = G.players[i]
+  const hand = player.hand
+
+  const [modalActive, setModalActive] = useState(false)
   return (
     <div>
+      <span onClick={() => setModalActive(true)}>{player.id}</span>
       <Modal active={modalActive} setActive={setModalActive}>
-        player
+        <div
+          className="villain-hand"
+          id={hand.length === 2 ? 'villain-two-cards' : 'villain-other-cards'}
+        >
+          {hand.map((x, index) => (
+            <div
+              className="card-wrapper"
+              id={'wrapped-card-' + index}
+              key={x.id}
+            >
+              <div className="transform-wrapper">
+                <img
+                  className="villain-playing-card"
+                  src={x.imageBackside}
+                  key={x.alt.charCodeAt(1) + x.alt.charCodeAt(2)}
+                  style={x.props}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </Modal>
     </div>
   )
 }
 
-export default player
+export default Player

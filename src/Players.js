@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './styles/radial.css'
 import CardsOnBoard from './CardsOnBoard'
-
+import Player from './Player'
 // row of players
 const Players = (props) => {
   const { ctx, playerID } = props
@@ -14,9 +14,7 @@ const Players = (props) => {
         key={props.G.players[i].id + props.G.players[i].name}
         className="player-container"
       >
-        <span className="displace radius15 ">
-          Игрок {props.G.players[i].id}
-        </span>
+        <Player {...props} i={i} />
       </li>
     )
   }
