@@ -15,12 +15,14 @@ const StyledImgWrapper = styled.img`
 const CardsOnBoard = (props) => {
   const remainingCards = props.G.deckOnBoard
   const topCard = remainingCards[remainingCards.length - 1]
+  const onClick = () => props.moves.Draw3Cards()
   return (
     <StyledCardWrapper id={'wrapped-card-' + topCard.id} key={topCard.id}>
       <StyledImgWrapper
         src={topCard.imageBackside}
         key={topCard.alt.charCodeAt(1) + topCard.alt.charCodeAt(2)}
         style={topCard.props}
+        onClick={() => onClick()}
       />
     </StyledCardWrapper>
   )

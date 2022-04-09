@@ -15,18 +15,30 @@ const setup = ({ numPlayers }) => {
   }
 }
 function DrawCard(G, ctx) {
-  let card = G.deckOnBoard.pop()
-  G.player[ctx.currentPlayer].hand.push(card)
+  //встроить проверку окончания колоды
+  const card = G.deckOnBoard.pop()
+  G.players[ctx.currentPlayer].hand.push(card)
 }
+function Draw3Cards(G, ctx) {
+  DrawCard(G, ctx)
+  DrawCard(G, ctx)
+  DrawCard(G, ctx)
+}
+
 export const Neto = {
   name: 'neto',
   setup: setup,
+  turn: { minMoves: 1, maxMoves: 1 },
   phases: {
+    //фазы игры, берем карту из колоды,если взяли панику, переходить в фазу игры, и сразу играем панику
     draw: {
-      moves: { DrawCard },
-      onBegin: () => {},
+      moves: { DrawCard, Draw3Cards },
       start: true,
     },
+    //играем карту
+    playCard: {},
+    //меняемся картами
+    swapCards: {},
   },
 }
 

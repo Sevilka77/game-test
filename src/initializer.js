@@ -43,6 +43,9 @@ export const initializeGame = (numPlayers) => {
         { ...deckEvent.pop() },
       ],
       picked: [],
+      infected: false,
+      thething: false,
+      dead: false,
       played: null,
       id: `${i}`,
     })
