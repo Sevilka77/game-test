@@ -23,7 +23,7 @@ const Players = (props) => {
   const players = []
   for (let index = 0; index < ctx.numPlayers; index++) {
     const i = parseInt(ctx.playOrder[index])
-    players.push(<Player {...props} i={i} />)
+    players.push(<Player {...props} i={i} key={index} />)
   }
   /*  for (let i = 0; i < parseInt(playerID); i++) {
     players.push(players.shift())

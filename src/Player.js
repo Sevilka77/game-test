@@ -49,7 +49,7 @@ const Player = ({ G, ctx, playerID, moves, i }) => {
             <StyledCardWrapper id={'wrapped-card-' + index} key={x.id}>
               <StyledImgWrapper
                 src={x.imageBackside}
-                key={x.alt.charCodeAt(1) + x.alt.charCodeAt(2) + x.id}
+                key={x.id + '' + index}
                 style={x.props}
               />
             </StyledCardWrapper>
