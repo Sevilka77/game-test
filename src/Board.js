@@ -7,8 +7,10 @@ const BoardWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 2rem;
-  display: flex;
-  flex-direction: column-reverse;
+  display: grid;
+  grid-template-rows:
+    [players] 2fr
+    [hero] 1fr;
   background: linear-gradient(
     53deg,
     rgba(82, 78, 144, 1) 0%,
@@ -19,6 +21,7 @@ const BoardWrapper = styled.div`
 const Board = (props) => {
   return (
     <BoardWrapper>
+      <Players {...props} />
       <Hero {...props} />
     </BoardWrapper>
   )
@@ -26,7 +29,5 @@ const Board = (props) => {
 
 export default Board
 
-{
-  /* <Players {...props} />
+/* <Players {...props} />
 <Hero {...props} /> */
-}

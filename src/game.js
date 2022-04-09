@@ -14,12 +14,16 @@ const setup = ({ numPlayers }) => {
     previousRound: [],
   }
 }
+function DrawCard(G, ctx) {
+  let card = G.deckOnBoard.pop()
+  G.player[ctx.currentPlayer].hand.push(card)
+}
 export const Neto = {
   name: 'neto',
   setup: setup,
   phases: {
     draw: {
-      moves: {},
+      moves: { DrawCard },
       onBegin: () => {},
       start: true,
     },

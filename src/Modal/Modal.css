@@ -15,15 +15,14 @@
 
 .modal.active {
   transform: scale(1);
-  z-index: 100;
   pointer-events: all;
 
 }
 .modal__content {
-  padding: 0.5rem;
+  padding: 20px;
   border-radius: 12px;
-  background-color: rgba(240, 248, 255, 0);
   display: flex;
-  height:auto;
-  width: auto;
-}
+  justify-content: center;
+  align-items: center;
+  z-index: 12;
+  }
