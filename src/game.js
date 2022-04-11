@@ -21,8 +21,6 @@ function DrawCard(G, ctx) {
 }
 function Draw3Cards(G, ctx) {
   DrawCard(G, ctx)
-  DrawCard(G, ctx)
-  DrawCard(G, ctx)
 }
 
 export const Neto = {
@@ -32,7 +30,7 @@ export const Neto = {
   phases: {
     //фазы игры, берем карту из колоды,если взяли панику, переходить в фазу игры, и сразу играем панику
     draw: {
-      moves: { DrawCard, Draw3Cards },
+      moves: { DrawCard },
       start: true,
     },
     //играем карту
