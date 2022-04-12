@@ -36,14 +36,16 @@ export const Neto = {
     },
     //играем
     main: {
-      start: true,
-    },
-  },
-  turn: {
-    stages: {
-      discard: {
-        moves: { DrawCard, PlayCard },
+      turn: {
+        activePlayers: { currentPlayer: 'draw' },
+        stages: {
+          draw: {
+            moves: { DrawCard },
+          },
+          play: { PlayCard },
+        },
       },
+      start: true,
     },
   },
 }
