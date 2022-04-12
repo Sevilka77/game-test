@@ -43,14 +43,12 @@ export const Neto = {
         activePlayers: { currentPlayer: 'draw' },
         stages: {
           draw: {
-            minMoves: 1,
-            maxMoves: 1,
             moves: { DrawCard },
             next: 'play',
           },
           play: {
             minMoves: 1,
-            maxMoves: 1,
+            maxMoves: 10,
             moves: { PlayCard, Discard },
             next: 'swap',
           },

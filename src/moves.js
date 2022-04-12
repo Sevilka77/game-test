@@ -2,10 +2,10 @@ export const PlayCard = (G, ctx) => {
   console.log('Play Card')
   ctx.events.endStage()
 }
-export const Discard = (G, ctx) => {
-  //сброс карты
-  console.log('discard')
-  ctx.events.endStage()
+export const Discard = (G, ctx, id) => {
+  const idx = G.players[ctx.currentPlayer].hand.findIndex((ac) => ac.id === id)
+  const removed = G.players[ctx.currentPlayer].hand.splice(idx, 1)
+  console.log(JSON.stringify(removed))
 }
 export const SwapCard = (G, ctx) => {
   console.log('swap card')
@@ -16,6 +16,7 @@ export const DrawCard = (G, ctx) => {
   //встроить проверку окончания колоды и проверку типа карты
   const card = G.deckOnBoard.pop()
   G.players[ctx.currentPlayer].hand.push(card)
+  ctx.events.endStage()
 }
 
 export const Analysis = (G, ctx) => {

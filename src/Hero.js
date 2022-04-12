@@ -34,7 +34,7 @@ const Hero = (props) => {
 
   const cardsToRender = G.players[playerID].hand
 
-  const onClick = () => moves.PlayCard()
+  const onClick = (id) => moves.Discard(id)
 
   return (
     <StyledHero $type={ctx.currentPlayer === playerID}>
@@ -45,7 +45,7 @@ const Hero = (props) => {
             alt={x.alt}
             key={x.alt}
             style={x.props}
-            onClick={() => onClick()}
+            onClick={() => onClick(x.id)}
           ></StyledImgWrapper>
         </StyledCardWrapper>
       ))}
