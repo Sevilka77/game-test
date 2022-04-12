@@ -34,7 +34,8 @@ const Hero = (props) => {
 
   const cardsToRender = G.players[playerID].hand
 
-  const onClick = () => props.moves.PlayCard()
+  const onClick = () => moves.PlayCard()
+
   return (
     <StyledHero $type={ctx.currentPlayer === playerID}>
       {cardsToRender.map((x, index) => (

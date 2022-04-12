@@ -14,20 +14,27 @@ const setup = ({ numPlayers }) => {
     previousRound: [],
   }
 }
-function DrawCard(G, ctx) {
-  //встроить проверку окончания колоды
+const DrawCard = (G, ctx) => {
+  //встроить проверку окончания колоды и проверку типа карты
   const card = G.deckOnBoard.pop()
   G.players[ctx.currentPlayer].hand.push(card)
+  console.log('Play Card')
+  ctx.events.endStage()
 }
 
-function PlayCard(G, ctx) {
-  console.log('play card')
+const PlayCard = (G, ctx) => {
+  console.log('Play Card')
+  ctx.events.endStage()
+}
+const SwapCard = (G, ctx) => {
+  console.log('swap card')
+  ctx.events.endStage()
+  ctx.events.endTurn()
 }
 
 export const Neto = {
   name: 'neto',
   setup: setup,
-  turn: { minMoves: 1, maxMoves: 1 },
 
   phases: {
     // ждем когда все нажмут что готоыв
@@ -40,9 +47,13 @@ export const Neto = {
         activePlayers: { currentPlayer: 'draw' },
         stages: {
           draw: {
+            minMoves: 1,
+            maxMoves: 1,
             moves: { DrawCard },
+            next: 'play',
           },
-          play: { PlayCard },
+          play: { minMoves: 1, maxMoves: 1, moves: { PlayCard }, next: 'swap' },
+          swap: { minMoves: 1, maxMoves: 1, moves: { SwapCard } },
         },
       },
       start: true,
