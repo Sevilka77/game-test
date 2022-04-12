@@ -27,14 +27,14 @@ export const Neto = {
       next: 'main',
     },
     //Фаза время признаний, показываем всем карты по очереди
+    //(пока берем карту из колоды, т.к. показ карт еще не сделали)
     revelations: {
       turn: {
         order: TurnOrder.ONCE,
         minMoves: 1,
         maxMoves: 1,
       },
-      moves: { PlayCard },
-      start: true,
+      moves: { DrawCard },
       next: 'main',
     },
     //играем
@@ -52,6 +52,7 @@ export const Neto = {
           swap: { minMoves: 1, maxMoves: 1, moves: { SwapCard } },
         },
       },
+      start: true,
     },
   },
 }
