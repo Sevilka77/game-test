@@ -1,5 +1,7 @@
 import { shuffleDeck } from './cards'
 import { initializeGame } from './initializer'
+import { PlayCard, SwapCard, DrawCard } from './moves'
+import { TurnOrder } from 'boardgame.io/core'
 
 const setup = ({ numPlayers }) => {
   const { deck, players } = initializeGame(numPlayers)
@@ -14,23 +16,6 @@ const setup = ({ numPlayers }) => {
     previousRound: [],
   }
 }
-const DrawCard = (G, ctx) => {
-  //встроить проверку окончания колоды и проверку типа карты
-  const card = G.deckOnBoard.pop()
-  G.players[ctx.currentPlayer].hand.push(card)
-  console.log('Draw Card')
-  ctx.events.endStage()
-}
-
-const PlayCard = (G, ctx) => {
-  console.log('Play Card')
-  ctx.events.endStage()
-}
-const SwapCard = (G, ctx) => {
-  console.log('swap card')
-  ctx.events.endStage()
-  ctx.events.endTurn()
-}
 
 export const Neto = {
   name: 'neto',
@@ -39,6 +24,17 @@ export const Neto = {
   phases: {
     // ждем когда все нажмут что готоыв
     pregame: {
+      next: 'main',
+    },
+    //Фаза время признаний, показываем всем карты по очереди
+    revelations: {
+      turn: {
+        order: TurnOrder.ONCE,
+        minMoves: 1,
+        maxMoves: 1,
+      },
+      moves: { PlayCard },
+      start: true,
       next: 'main',
     },
     //играем
@@ -56,7 +52,6 @@ export const Neto = {
           swap: { minMoves: 1, maxMoves: 1, moves: { SwapCard } },
         },
       },
-      start: true,
     },
   },
 }
