@@ -1,19 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-
 const StyledCardWrapper = styled.div`
-  padding: 10px;
-
-  justify-self: center;
+  margin: 0.6em;
   height: 30vh;
-  filter: drop-shadow(1vh -1vh 4px rgb(0, 0, 0, 0.4));
   transform: rotate(90deg);
+  filter: drop-shadow(1vh -1vh 4px rgb(0, 0, 0, 0.4));
+  :hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
 `
 const StyledImgWrapper = styled.img`
   object-fit: contain;
   height: 100%;
-  border-radius: 30px;
+  border-radius: 4px;
 `
+
 const DiscardDeck = (props) => {
   if (props.G.discardDeckOnBoard.length < 1) {
     return

@@ -1,17 +1,14 @@
-export const PlayCard = (G, ctx) => {
-  console.log('Play Card')
-  ctx.events.endStage()
-}
 export const Discard = (G, ctx, id) => {
   const idx = G.players[ctx.currentPlayer].hand.findIndex((ac) => ac.id === id)
   const removed = G.players[ctx.currentPlayer].hand.splice(idx, 1)
   G.discardDeckOnBoard.push(removed[0])
-  console.log(JSON.stringify(removed[0]))
-}
-export const SwapCard = (G, ctx) => {
-  console.log('swap card')
   ctx.events.endStage()
-  ctx.events.endTurn()
+}
+export const SelectCard = (G, ctx, id) => {
+  console.log('swap card')
+  const idx = G.players[ctx.currentPlayer].hand.findIndex((ac) => ac.id === id)
+  const removed = G.players[ctx.currentPlayer].hand.splice(idx, 1)
+  G.discardDeckOnBoard.push(removed[0])
 }
 export const DrawCard = (G, ctx) => {
   //встроить проверку окончания колоды и проверку типа карты
