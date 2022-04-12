@@ -18,7 +18,7 @@ const DrawCard = (G, ctx) => {
   //встроить проверку окончания колоды и проверку типа карты
   const card = G.deckOnBoard.pop()
   G.players[ctx.currentPlayer].hand.push(card)
-  console.log('Play Card')
+  console.log('Draw Card')
   ctx.events.endStage()
 }
 
