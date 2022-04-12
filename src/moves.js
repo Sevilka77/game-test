@@ -5,7 +5,8 @@ export const PlayCard = (G, ctx) => {
 export const Discard = (G, ctx, id) => {
   const idx = G.players[ctx.currentPlayer].hand.findIndex((ac) => ac.id === id)
   const removed = G.players[ctx.currentPlayer].hand.splice(idx, 1)
-  console.log(JSON.stringify(removed))
+  G.discardDeckOnBoard.push(removed[0])
+  console.log(JSON.stringify(removed[0]))
 }
 export const SwapCard = (G, ctx) => {
   console.log('swap card')

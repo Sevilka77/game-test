@@ -9,6 +9,7 @@ const setup = ({ numPlayers }) => {
     players: players,
     briscola: null,
     deckOnBoard: shuffleDeck(deck),
+    discardDeckOnBoard: [],
     evaluated: false,
     winner: 0,
     loser: 1,

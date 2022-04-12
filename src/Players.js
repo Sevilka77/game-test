@@ -2,6 +2,7 @@ import React from 'react'
 import CardsOnBoard from './CardsOnBoard'
 import Player from './Player'
 import styled from 'styled-components'
+import DiscardDeck from './DiscardDeck'
 
 const PlayersWrapper = styled.div`
   grid-row: players;
@@ -15,6 +16,12 @@ const FlexWrapper = styled.div`
   grid-row: turnplayers;
   display: flex;
   justify-content: center;
+`
+const FlexBattleWrapper = styled.div`
+  grid-row: cardsonboard;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 `
 // row of players
 const Players = (props) => {
@@ -33,8 +40,10 @@ const Players = (props) => {
   return (
     <PlayersWrapper>
       <FlexWrapper> {players}</FlexWrapper>
-
-      <CardsOnBoard {...props} />
+      <FlexBattleWrapper>
+        <DiscardDeck {...props} />
+        <CardsOnBoard {...props} />
+      </FlexBattleWrapper>
     </PlayersWrapper>
   )
 }
