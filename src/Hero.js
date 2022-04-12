@@ -30,10 +30,11 @@ const StyledImgWrapper = styled.img`
 `
 
 const Hero = (props) => {
-  const { G, ctx, playerID } = props
+  const { G, ctx, playerID, moves } = props
 
   const cardsToRender = G.players[playerID].hand
 
+  const onClick = () => props.moves.PlayCard()
   return (
     <StyledHero $type={ctx.currentPlayer === playerID}>
       {cardsToRender.map((x, index) => (
@@ -43,6 +44,7 @@ const Hero = (props) => {
             alt={x.alt}
             key={x.alt}
             style={x.props}
+            onClick={() => onClick()}
           ></StyledImgWrapper>
         </StyledCardWrapper>
       ))}
