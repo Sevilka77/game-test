@@ -1,6 +1,6 @@
 import { shuffleDeck } from './cards'
 import { initializeGame } from './initializer'
-import { PlayCard, SwapCard, DrawCard } from './moves'
+import { PlayCard, SwapCard, DrawCard, Discard } from './moves'
 import { TurnOrder } from 'boardgame.io/core'
 
 const setup = ({ numPlayers }) => {
@@ -48,7 +48,12 @@ export const Neto = {
             moves: { DrawCard },
             next: 'play',
           },
-          play: { minMoves: 1, maxMoves: 1, moves: { PlayCard }, next: 'swap' },
+          play: {
+            minMoves: 1,
+            maxMoves: 1,
+            moves: { PlayCard, Discard },
+            next: 'swap',
+          },
           swap: { minMoves: 1, maxMoves: 1, moves: { SwapCard } },
         },
       },

@@ -2,6 +2,11 @@ export const PlayCard = (G, ctx) => {
   console.log('Play Card')
   ctx.events.endStage()
 }
+export const Discard = (G, ctx) => {
+  //сброс карты
+  console.log('discard')
+  ctx.events.endStage()
+}
 export const SwapCard = (G, ctx) => {
   console.log('swap card')
   ctx.events.endStage()
